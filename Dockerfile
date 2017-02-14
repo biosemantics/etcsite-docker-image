@@ -38,15 +38,15 @@ RUN git clone https://github.com/EulerProject/EulerX.git /root/git/eulerx
 RUN git clone https://github.com/biosemantics/schemas.git /root/git/schemas
 
 ### Setup MySQL
-COPY build_mysql_db.sh /opt/build_mysql_db.sh
-RUN chmod +x /opt/build_mysql_db.sh
-RUN /opt/build_mysql_db.sh
+COPY setupDB.sh /opt/setupDB.sh
+RUN chmod +x /opt/setupDB.sh
+RUN /opt/setupDB.sh
 
 ### Setup Apache2
 RUN a2enmod proxy_http
 COPY etcsiteJetty.conf /etc/apache2/sites-available/etcsiteJetty.conf
 RUN a2ensite etcsiteJetty
-
+m
 ### Setup etcsite directory
 RUN mkdir -p /var/lib/etcsite/data/alignment
 RUN mkdir -p /var/lib/etcsite/data/keyGeneration
