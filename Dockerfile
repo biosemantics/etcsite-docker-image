@@ -46,7 +46,7 @@ RUN /opt/setupDB.sh
 RUN a2enmod proxy_http
 COPY etcsiteJetty.conf /etc/apache2/sites-available/etcsiteJetty.conf
 RUN a2ensite etcsiteJetty
-m
+
 ### Setup etcsite directory
 RUN mkdir -p /var/lib/etcsite/data/alignment
 RUN mkdir -p /var/lib/etcsite/data/keyGeneration
